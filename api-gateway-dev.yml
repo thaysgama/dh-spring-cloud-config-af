@@ -17,3 +17,5 @@ spring:
           uri: lb://SERIE-SERVICE
           predicates:
            - Path=/serie/**
+      default-filters:
+        - TokenRelay
