@@ -9,13 +9,17 @@ spring:
           uri: lb://CATALOG-SERVICE
           predicates:
            - Path=/catalog/**
+           
         - id: movieRoute
           uri: lb://MOVIE-SERVICE
           predicates:
            - Path=/movie/**
+          filters:
+           - TokenRelay
+           
         - id: serieRoute
           uri: lb://SERIE-SERVICE
           predicates:
            - Path=/serie/**
-      default-filters:
-        - TokenRelay
+          filters:
+           - TokenRelay
